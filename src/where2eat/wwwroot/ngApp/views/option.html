@@ -1,0 +1,114 @@
+<div style="margin: 50px;">
+    <form class="form-horizontal">
+        <h2>Add your options here:</h2>
+        <p>
+            {{controller.message}}
+        </p>
+        <p>Step 1 select an event to add or edit options:</p>
+        <select class="form-control" ng-model="controller.selectedEvent" ng-options='(selectedEvent.eventName+" "+(selectedEvent.eventDate | date:"MM-dd-yy")) for selectedEvent in controller.events' ng-change="controller.getOptions()">
+            <option value="0">Default</option>
+        </select>
+    </form>
+</div>
+ <div style="margin: 50px;">
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <form class="form-horizontal">
+                        <p>Step 2 add a new option or update/delete an existing option by clicking on the buttons below:</p>
+                        <table>
+                            <tr style="vertical-align:bottom; border:1px solid; padding:1px">
+                                <td>
+                                    <div class="col-lg-10" style="padding:10px;">
+                                        <label class="col-lg-2 control-label">Name:</label>
+                                        <input class="form-control" ng-model="newOption.OptionName" />
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col-lg-10" style="padding:10px;">
+                                        <label class="col-lg-2 control-label">Description:</label>
+                                        <textarea class="form-control" ng-model="newOption.OptionDescription"></textarea>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col-lg-10" style="padding:10px;">
+                                        <label class="col-lg-2 control-label">Contributor:</label>
+                                        <input class="form-control" ng-model="newOption.OptionContributor" />
+                                    </div>
+                                </td>
+                                <td colspan="2">
+                                    <div class="col-lg-10" style="padding:10px; align-items:center">
+                                        <input type="submit" class="btn btn-info" value="Add an option" ng-click="controller.addOption(newOption)" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <form class="form-horizontal" ng-repeat="option in controller.selectedEventOptions">
+                        <table class="table-responsive">
+                            <tr style="vertical-align:bottom; border:1px solid; padding:1px">
+                                <td>
+                                    <div class="col-lg-10" style="padding:10px;">
+                                        <label class="col-lg-2 control-label">Name:</label>
+                                        <input class="form-control" placeholder="{{option.optionName}}" ng-model="option.optionName" />
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col-lg-10" style="padding:10px;">
+                                        <label class="col-lg-2 control-label">Description:</label>
+                                        <textarea class="form-control" placeholder="{{option.optionDescription}}" ng-model="option.optionDescription"></textarea>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col-lg-10" style="padding:10px;">
+                                        <label class="col-lg-2 control-label">Contributor:</label>
+                                        <input class="form-control" placeholder="{{option.optionContributor}}" ng-model="option.optionContributor" />
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col-lg-10" style="padding:10px;">
+                                        <input type="submit" class="btn btn-info" value="Update" ng-click="controller.updateOption(option)" />
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col-lg-10" style="padding:10px">
+                                        <input type="submit" class="btn btn-info" value="Delete" ng-click="controller.deleteOption(option)" />
+                                    </div>
+                                </td>
+                            </tr>
+                       </table>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div style="margin: 50px;">
+    <p>Step 3 And the winner is now get your eat on:</p>
+    <table>
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Contributor</th>
+            </tr>
+            <tr style="vertical-align:bottom; border:1px solid; padding:1px" ng-repeat="option in controller.selectedEventOptions | orderBy: '-optionValue' | limitTo: '1'">
+                <td>
+                    {{option.optionName}}
+                </td>
+                <td>
+                    {{option.optionDescription}}
+                </td>
+                <td>
+                    {{option.optionContributor}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,29 @@
+<section>
+    <h2>Add your Event here:</h2>
+    <p>
+        {{controller.message}}
+    </p>
+    <form ng-submit="controller.addEvent()" class="form-horizontal">
+        <div class="col-lg-10">
+            <label class="col-lg-2 control-label">Event Name:</label>
+            <div>
+                <input ng-model="controller.newEvent.eventname" class="form-control" />
+            </div>
+            <br />
+        </div>
+        <br>
+        <div class="col-lg-10">
+            <label class="col-lg-2 control-label">Event Date:</label>
+            <div>
+                <input type="date" placeholder="MM/DD/YYYY" ng-model="controller.newEvent.eventdate" class="form-control" />
+            </div>
+            <br />
+        </div>
+        <br />
+        <div class="col-lg-10 col-lg-offset-4">
+            <input type="submit" value="Save" class="btn btn-info" />
+        </div>
+    </form>
+    <br />
+</section>
+
