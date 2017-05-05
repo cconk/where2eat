@@ -1,7 +1,6 @@
 <h1>Register</h1>
 
 <fieldset>
-    <legend>Local Registration</legend>
     <ul>
         <li ng-repeat="message in controller.validationMessages">
             {{message}}
@@ -10,20 +9,20 @@
 
     <form class="form-horizontal" ng-submit="controller.register()">
         <p>Please be sure to use a special character in your password.</p>
-        <div class="col-lg-10">
-            <label class="col-lg-2 control-label">Email:</label>
+        <div>
+            <label>Email:</label>
             <input class="form-control" ng-model="controller.registerUser.email" />
         </div>
-        <div class="col-lg-10">
-            <label class="col-lg-2 control-label">Password:</label>
+        <div>
+            <label>Password:</label>
             <input class="form-control" type="password" ng-model="controller.registerUser.password" />
         </div>
-        <div class="col-lg-10">
-            <label class="col-lg-2 control-label">Confirm Password:</label>
+        <div>
+            <label>Confirm Password:</label>
             <input class="form-control" type="password" ng-model="controller.registerUser.confirmPassword" />
         </div>
         <br />
-        <div class="col-lg-10 col-lg-offset-2">
+        <div>
             <input class="btn btn-info" type="submit" value="Register" />
         </div>
     </form>

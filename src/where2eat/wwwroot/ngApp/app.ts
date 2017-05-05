@@ -7,6 +7,12 @@ namespace where2eat {
     ) => {
         // Define routes
         $stateProvider
+            .state('home', {
+                url: '/',
+                templateUrl: '/ngApp/views/home.html',
+                controller: where2eat.Controllers.HomeController,
+                controllerAs: 'controller'
+            })
             .state('event', {
                 url: '/event',
                 templateUrl: '/ngApp/views/event.html',
@@ -14,7 +20,7 @@ namespace where2eat {
                 controllerAs: 'controller'
             })
             .state('login', {
-                url: '/',
+                url: '/login',
                 templateUrl: '/ngApp/views/login.html',
                 controller: where2eat.Controllers.LoginController,
                 controllerAs: 'controller'

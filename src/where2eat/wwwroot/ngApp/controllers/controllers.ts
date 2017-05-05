@@ -1,5 +1,9 @@
 namespace where2eat.Controllers {
 
+    export class HomeController {
+        public message = 'You can use this app to help you decide where you should eat.  Login and follow the instruction on each page.'
+    }
+
     export class EventController {
         public message = 'Add an event to your list by entering the information below';
         public EventResource;
@@ -27,7 +31,7 @@ namespace where2eat.Controllers {
     }
 
     export class OptionController {
-        public message = 'Hello from the about page!';
+        public message = 'Follow the steps below:';
         public EventResource;
         public OptionResource;
         public DecisionResource;
@@ -95,4 +99,3 @@ namespace where2eat.Controllers {
 
     }
 
-}

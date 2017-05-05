@@ -7,12 +7,37 @@ body {
     background-position: center center;
 }
 
+h1{
+    color:black;
+    outline-color:white;
+}
+
+h2{
+    color:black;
+    outline-color:white;
+}
+
 td{
     padding: 0 15px 0 15px;
 }
 
 th{
     padding: 0 15px 0 15px;
+    text-align: center;
+}
+
+table{
+    border-spacing: 5px;
+}
+
+a{
+    color:black;
+    outline-color:white;
+}
+
+span{
+    color:black;
+    outline-color:white;
 }
 
 /* Wrapping element */
